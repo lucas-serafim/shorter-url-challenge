@@ -1,5 +1,6 @@
 package com.serafim.shorter_url_challenge.controller;
 
+import com.serafim.shorter_url_challenge.domain.response.MessageResponse;
 import com.serafim.shorter_url_challenge.domain.shorter_url.ShorterUrl;
 import com.serafim.shorter_url_challenge.domain.shorter_url.ShorterUrlRequestDTO;
 import com.serafim.shorter_url_challenge.domain.shorter_url.ShorterUrlResponseDTO;
@@ -28,4 +29,11 @@ public class ShorterUrlController {
         List<ShorterUrlResponseDTO> list = shorterUrlService.findAll();
         return ResponseEntity.ok(list);
     }
+
+    @DeleteMapping("/links/{id}")
+    public ResponseEntity<MessageResponse> deleteUrl(@PathVariable String id) {
+        shorterUrlService.deleteUrl(id);
+        return ResponseEntity.ok(new MessageResponse("Link deleted successfully."));
+    }
+
 }

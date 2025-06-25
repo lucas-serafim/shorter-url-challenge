@@ -42,4 +42,8 @@ public class ShorterUrlService {
                 current.getClicks()
         )).toList();
     }
+
+    public void deleteUrl(String id) {
+        shorterUrlRepository.deleteById(id);
+    }
 }
