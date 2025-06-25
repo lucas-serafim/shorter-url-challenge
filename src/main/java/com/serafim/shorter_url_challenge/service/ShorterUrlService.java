@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ShorterUrlService {
@@ -41,6 +42,10 @@ public class ShorterUrlService {
                 current.getOriginalUrl(),
                 current.getClicks()
         )).toList();
+    }
+
+    public ShorterUrl getById(String id) {
+        return shorterUrlRepository.findById(id).get();
     }
 
     public void deleteUrl(String id) {
