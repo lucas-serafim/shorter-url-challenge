@@ -45,7 +45,8 @@ public class ShorterUrlService {
     }
 
     public ShorterUrl getById(String id) {
-        return shorterUrlRepository.findById(id).get();
+        Optional<ShorterUrl> shorterUrl = shorterUrlRepository.findById(id);
+        return shorterUrl.orElse(null);
     }
 
     public void deleteUrl(String id) {

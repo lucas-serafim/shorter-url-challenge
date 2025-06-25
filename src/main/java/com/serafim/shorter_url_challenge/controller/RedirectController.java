@@ -23,6 +23,10 @@ public class RedirectController {
     public ResponseEntity<Void> redirectLink(@PathVariable("id") String id, HttpServletResponse httpServletResponse) {
         ShorterUrl shorterUrl = shorterUrlService.getById(id);
 
+        if (shorterUrl == null) {
+            return ResponseEntity.notFound().build();
+        }
+
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setLocation(URI.create(shorterUrl.getOriginalUrl()));
 
