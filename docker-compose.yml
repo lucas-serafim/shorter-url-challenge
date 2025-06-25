@@ -2,7 +2,7 @@ services:
   db:
     image: postgres
     environment:
-      POSTGRES_USERNAME: serafim
+      POSTGRES_USER: serafim
       POSTGRES_PASSWORD: password
       POSTGRES_DB: development
     ports:
