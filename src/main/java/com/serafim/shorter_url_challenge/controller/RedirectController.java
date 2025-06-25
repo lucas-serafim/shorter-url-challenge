@@ -27,6 +27,8 @@ public class RedirectController {
             return ResponseEntity.notFound().build();
         }
 
+        shorterUrlService.increaseClick(shorterUrl);
+
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setLocation(URI.create(shorterUrl.getOriginalUrl()));
 

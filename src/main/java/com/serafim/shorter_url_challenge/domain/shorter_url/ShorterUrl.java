@@ -29,4 +29,8 @@ public class ShorterUrl {
         this.shortUrl = shortUrl;
         this.originalUrl = originalUrl;
     }
+
+    public void increaseClick() {
+        clicks += 1;
+    }
 }

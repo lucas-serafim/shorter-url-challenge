@@ -49,6 +49,11 @@ public class ShorterUrlService {
         return shorterUrl.orElse(null);
     }
 
+    public void increaseClick(ShorterUrl shorterUrl) {
+        shorterUrl.increaseClick();
+        shorterUrlRepository.save(shorterUrl);
+    }
+
     public void deleteUrl(String id) {
         shorterUrlRepository.deleteById(id);
     }
